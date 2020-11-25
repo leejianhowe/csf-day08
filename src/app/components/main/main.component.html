@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-12" style="height: 100%">
+    <ng-lottie
+      [routerLink]="['/searchlist']"
+      (loopComplete)="onComplete()"
+      [options]="options"
+      (animationCreated)="animationCreated($event)"
+    ></ng-lottie>
+  </div>
+</div>

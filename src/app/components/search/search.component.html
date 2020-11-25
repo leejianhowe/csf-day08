@@ -1,0 +1,74 @@
+<form [formGroup]="form" class="container mt-3">
+  <div class="form-group row">
+    <label for="title">Title:</label>
+    <input class="form-control" type="text" formControlName="title"/>
+    <div *ngIf="form.get('title').invalid && (form.get('title').dirty || form.get('title').touched)">
+      min 3 characeters
+    </div>
+    <div *ngIf="form.get('title').hasError('minlength')">hasError('minlength') = 3</div>
+    Type: {{ genre }}
+  </div>
+  
+  <!-- <div class="form-group row">
+    <label for="genre">Genre</label>
+    <select formControlName="genre">
+      <option value="manga">Manga</option>
+      <option value="anime">Anime</option>
+    </select>
+  </div> -->
+  <!-- <div class="form-group row">
+    <label for="anime">Anime</label>
+    <div class="col-md-6">
+      <input type="radio" value="1" formControlName="anime" />1
+    </div>
+    <div class="col-md-6">
+      <input type="radio" value="2" formControlName="anime" />2
+    </div>
+  </div> -->
+  <div class="row mt-3">
+    <div class="btn-group btn-block" role="group" aria-label="Basic example">
+      <button
+        type="button"
+        (click)="setGenre('manga')"
+        class="btn btn-secondary"
+      >
+        Manga
+      </button>
+      <button
+        type="button"
+        (click)="setGenre('anime')"
+        class="btn btn-secondary"
+      >
+        Anime
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="row mt-3">
+  <div class="col-sm-12">
+    <button
+      type="button"
+      [disabled]="!form.valid"
+      class="btn-block btn btn-light"
+      (click)="onSearch()"
+    >
+      Search
+    </button>
+    <button
+      type="button"
+      [disabled]="form.invalid"
+      class="btn btn-success btn-block"
+      (click)="onSave()"
+    >
+      Save
+    </button>
+  </div>
+</div>
+<div class="row mt-3 align-items-end">
+  <div class="col-sm-12">
+    <button type="button" class="btn btn-danger btn-block" (click)="navigate()">
+      Back
+    </button>
+  </div>
+</div>
