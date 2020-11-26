@@ -4,15 +4,22 @@
       {{ genre }}|<strong style="color: #6128fa">{{ query }}</strong>
     </h3>
     <div class="row justify-content-between">
-      <div class="col-lg-3" *ngFor="let item of results">
+      <div class="col-lg-3" *ngFor="let item of results; let index=index">
       <div class="card mt-3"  style="width: 18rem">
         <img class="card-img-top" src="{{ item.image_url }}" />
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.synopsis }}</p>
+          <div class="row justify-content-between">
+            <div class="col-8">
           <a target="blank" href="{{ item.url }}" class="btn btn-primary"
             >Visit Site</a
           >
+        </div>
+        <div class="col-2" (click)="shareItem(index)" *ngIf="canShare">
+          <i class="fas fa-spin fa-share-alt" ></i>
+        </div>
+        </div>
         </div>
       </div>
       </div>

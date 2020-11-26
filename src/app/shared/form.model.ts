@@ -3,3 +3,11 @@ export interface Form{
     title: string,
     genre: string
 }
+
+
+export interface Result{
+    image_url: string,
+    title: string,
+    synopsis: string,
+    url: string
+}
